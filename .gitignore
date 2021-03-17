@@ -30,3 +30,7 @@ pom.xml.releaseBackup
 
 # Mac
 .DS_Store
+
+*.crt
+*.p12
+*.key
