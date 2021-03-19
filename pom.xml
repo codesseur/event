@@ -5,7 +5,7 @@
     <parent>
         <groupId>net.sfr.tv</groupId>
         <artifactId>pfs-tv-parent</artifactId>
-        <version>0.0.1</version>
+        <version>0.2.0</version>
     </parent>
 
     <artifactId>nice-events</artifactId>
@@ -35,7 +35,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>immutables-annotations</artifactId>
             <scope>provided</scope>
-            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.immutables</groupId>
@@ -45,12 +44,10 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>immutables-exceptions</artifactId>
-            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>nice-mixins</artifactId>
-            <version>0.0.1</version>
         </dependency>
 
         <dependency>
