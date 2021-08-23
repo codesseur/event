@@ -1,8 +1,10 @@
-package net.sfr.tv.event;
+package com.codesseur.event;
 
+import static java.util.Objects.requireNonNull;
+
+import com.codesseur.Universe;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import net.sfr.tv.Universe;
 
 public class ConditionalEventListener<T extends Event> implements EventListener<T> {
 
@@ -10,8 +12,8 @@ public class ConditionalEventListener<T extends Event> implements EventListener<
   private final EventListener<T> consumer;
 
   public ConditionalEventListener(Predicate<Event> matcher, EventListener<T> consumer) {
-    this.matcher = matcher;
-    this.consumer = consumer;
+    this.matcher = requireNonNull(matcher);
+    this.consumer = requireNonNull(consumer);
   }
 
   public static <T extends Event> Builder<T> forType(Class<T> type) {

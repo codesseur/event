@@ -1,20 +1,19 @@
-package net.sfr.tv;
+package com.codesseur;
 
-import net.sfr.tv.dialog.Answer;
-import net.sfr.tv.dialog.Audience;
-import net.sfr.tv.dialog.Question;
-import net.sfr.tv.dialog.Responder;
-import net.sfr.tv.event.Event;
-import net.sfr.tv.event.EventDispatcher;
-import net.sfr.tv.event.EventListener;
+import com.codesseur.dialog.Answer;
+import com.codesseur.dialog.Audience;
+import com.codesseur.dialog.Question;
+import com.codesseur.dialog.Responder;
+import com.codesseur.event.Event;
+import com.codesseur.event.EventDispatcher;
+import com.codesseur.event.EventListener;
+import java.util.List;
 
 public class Universe implements Responder<Question> {
 
   private final EventDispatcher eventDispatcher;
   private final Audience audience;
   private static final Universe INSTANCE = new Universe();
-
-
 
   public static Universe get() {
     return INSTANCE;
@@ -32,6 +31,10 @@ public class Universe implements Responder<Question> {
 
   public void post(Event event) {
     eventDispatcher.send(event);
+  }
+
+  public void post(Iterable<? extends Event> event) {
+    event.forEach(this::post);
   }
 
   public void register(EventListener<? extends Event> listener) {

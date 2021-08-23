@@ -1,4 +1,4 @@
-package net.sfr.tv.event;
+package com.codesseur.event;
 
 import java.util.ArrayList;
 import java.util.List;

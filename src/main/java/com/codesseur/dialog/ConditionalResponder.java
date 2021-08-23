@@ -1,13 +1,13 @@
-package net.sfr.tv.dialog;
+package com.codesseur.dialog;
 
+import com.codesseur.Universe;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import net.sfr.tv.Universe;
 
 public class ConditionalResponder<T extends Question> implements Responder<T> {
 
   private final Predicate<Question> matcher;
-  private final Responder consumer;
+  private final Responder<T> consumer;
 
   public ConditionalResponder(Predicate<Question> matcher, Responder<T> consumer) {
     this.matcher = matcher;

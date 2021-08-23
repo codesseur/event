@@ -1,4 +1,4 @@
-package net.sfr.tv.dialog;
+package com.codesseur.dialog;
 
 public interface Responder<T extends Question> {
 

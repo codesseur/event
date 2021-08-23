@@ -1,4 +1,4 @@
-package net.sfr.tv.dialog;
+package com.codesseur.dialog;
 
 import java.util.ArrayList;
 import java.util.List;
