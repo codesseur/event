@@ -4,10 +4,11 @@ import com.codesseur.dialog.Answer;
 import com.codesseur.dialog.Audience;
 import com.codesseur.dialog.Question;
 import com.codesseur.dialog.Responder;
+import com.codesseur.dialog.ResponderSubscription;
 import com.codesseur.event.Event;
 import com.codesseur.event.EventDispatcher;
 import com.codesseur.event.EventListener;
-import java.util.List;
+import com.codesseur.event.ListenerSubscription;
 
 public class Universe implements Responder<Question> {
 
@@ -37,12 +38,17 @@ public class Universe implements Responder<Question> {
     event.forEach(this::post);
   }
 
-  public void register(EventListener<? extends Event> listener) {
-    eventDispatcher.register(listener);
+  public ListenerSubscription register(EventListener<? extends Event> listener) {
+    return eventDispatcher.register(listener);
   }
 
-  public void register(Responder<? extends Question> responder) {
-    audience.register(responder);
+  public ResponderSubscription register(Responder<? extends Question> responder) {
+    return audience.register(responder);
+  }
+
+  public void clear() {
+    audience.clear();
+    eventDispatcher.clear();
   }
 
 }

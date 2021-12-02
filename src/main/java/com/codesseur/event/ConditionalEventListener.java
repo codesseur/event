@@ -3,6 +3,7 @@ package com.codesseur.event;
 import static java.util.Objects.requireNonNull;
 
 import com.codesseur.Universe;
+import com.codesseur.dialog.ResponderSubscription;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -49,12 +50,12 @@ public class ConditionalEventListener<T extends Event> implements EventListener<
       return this;
     }
 
-    public void register(Universe universe) {
-      universe.register(eventListener);
+    public ListenerSubscription register(Universe universe) {
+      return universe.register(eventListener);
     }
 
-    public void register() {
-      register(Universe.get());
+    public ListenerSubscription register() {
+      return register(Universe.get());
     }
 
   }
