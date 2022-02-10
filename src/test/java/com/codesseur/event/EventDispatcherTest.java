@@ -60,4 +60,13 @@ public class EventDispatcherTest {
     eventStream.publishEvents();
     Mockito.verify(consumer1, Mockito.times(1)).accept(Mockito.any());
   }
+
+  @Test
+  public void appendEvent() {
+    PersonEvent event = new PersonEvent();
+
+    Person person = new Person().withEvents(s -> s.append(event));
+
+    Assertions.assertThat((Stream<Event>) person.eventSequence()).containsExactly(event);
+  }
 }
